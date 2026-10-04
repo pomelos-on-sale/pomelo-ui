@@ -117,15 +117,6 @@ flowchart LR
 
 ---
 
-## 📌 Known Issues & Roadmap
-
-- [Architecture & Open-Source Library Reuse Guide](todo/261004-01-open-source-libraries-integration-and-architecture.md): Engineering principles, why pomelo-gfx was developed for RGB565, and planned integration of palette, qoi, esp-dsp, and lyon.
-- [Screen Partial Redraw Black Vertical Lines Investigation](todo/261004-02-screen-partial-redraw-black-vertical-lines-investigation.md): Root cause analysis and hardware-level fix for black vertical line glitches during dirty rectangle flushes on AMOLED 480x480 panel.
-- [Blocking I/O & Image Pipeline Overhaul](todo/260929-03-blocking-io-and-image-pipeline.md): Decoupling blocking network/disk I/O from the frame loop, introducing job state machines and streaming bitmap decoding.
-- [HTTPS & TLS Support Plan](todo/260929-04-https-and-tls-support.md): Integrating ESP-IDF mbedTLS certificates and secure networking in Rust.
-
----
-
 ## 🙌 Contributing
 
 Contributions, bug reports, and pull requests are warmly welcome! Workflow:

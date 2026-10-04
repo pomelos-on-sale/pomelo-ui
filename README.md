@@ -123,15 +123,6 @@ flowchart LR
 
 ---
 
-## 📌 已知问题和待做
-
-- [开源库复用与架构边界指南](todo/261004-01-open-source-libraries-integration-and-architecture.md)：工程复用原则、自研 RGB565 光栅化引擎的物理原因，以及后续引入 palette、qoi、esp-dsp 与 lyon 的技术路线图。
-- [屏幕局部重绘黑垂直线问题排查](todo/261004-02-screen-partial-redraw-black-vertical-lines-investigation.md)：针对 480×480 AMOLED 面板在局部重绘时出现的黑色垂直条纹问题的底层硬件排查与解决方案。
-- [阻塞 I/O 与图像管线改造](todo/260929-03-blocking-io-and-image-pipeline.md)：在单线程帧循环中分离耗时 I/O、引入后台 Job 状态机与流式位图解码管线。
-- [HTTPS 与 TLS 安全通信支持](todo/260929-04-https-and-tls-support.md)：ESP-IDF mbedTLS 证书管理与 Rust 嵌入式网络请求安全集成方案。
-
----
-
 ## 🙌 欢迎发起 Issue 和提交 Pull Request
 
 欢迎为本项目贡献代码、扩充组件、优化性能或修复问题。提交步骤：
