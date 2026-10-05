@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "iced-pomelo-winit",
+    "iced-pomelo-gfx",
+    "pomelo-gfx",
+    "pomelo-material-symbols",
+]
+exclude = [
+    "iced",
+]
+
+[patch.crates-io]
+iced_core = { path = "iced/core" }
+iced_debug = { path = "iced/debug" }
+iced_futures = { path = "iced/futures" }
+iced_graphics = { path = "iced/graphics" }
+iced_program = { path = "iced/program" }
+iced_renderer = { path = "iced/renderer" }
+iced_runtime = { path = "iced/runtime" }
+iced_tiny_skia = { path = "iced/tiny_skia" }
+iced_widget = { path = "iced/widget" }
+iced_winit = { path = "iced-pomelo-winit" }
+
+[patch.crates-io.cosmic-text]
+git = "https://github.com/pomelos-on-sale/cosmic-text.git"
+rev = "43f1d89724436d2bf53970bd2ddbf8c05771f01f"
+
+[patch."ssh://git@github.com/pomelos-on-sale/pomelo-gfx.git"]
+pomelo-gfx = { path = "pomelo-gfx" }
+
+[patch."https://github.com/pomelos-on-sale/pomelo-gfx.git"]
+pomelo-gfx = { path = "pomelo-gfx" }
+
+[patch."ssh://git@github.com/pomelos-on-sale/iced-pomelo-gfx.git"]
+iced-pomelo-gfx = { path = "iced-pomelo-gfx" }
+
+[patch."https://github.com/pomelos-on-sale/iced-pomelo-gfx.git"]
+iced-pomelo-gfx = { path = "iced-pomelo-gfx" }
