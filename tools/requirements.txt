@@ -1,7 +1,9 @@
-# Python dependencies for tooling scripts (tools/ and ui-framework/pomelo-font/scripts/)
+# Python dependencies for tooling scripts in Pomelo UI
 # Install with: pip install -r tools/requirements.txt
 
+# Pillow: 用于 tools/png_to_qoi.py 的图像读取、高保真缩放、裁剪与连续曲率 Squircle 倒角预处理
 Pillow>=10.0.0
+
+# freetype-py & fonttools: 用于 ui-framework/pomelo-font/bake.py 中文字体子集化 (pyftsubset) 与位图字形表烘焙
 freetype-py>=2.5.0
-# fontTools 用于字库子集化（pyftsubset），与 freetype-py 配合字库烘培。
 fonttools>=4.50.0
