@@ -59,7 +59,7 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 
 | Feature | Status | Description |
 | :--- | :---: | :--- |
-| **Iced Widgets** | ✅ Supported | Buttons, sliders, text input (Text Input with password masking & cursor blinking), custom Canvas, layout containers, etc. |
+| **Iced Widgets** | ✅ Supported | Buttons, sliders, text input, custom Canvas, layout containers, etc. |
 | **Chinese Typography** | ✅ Supported | Subsetted Source Han Sans bitmap glyph masks, zero runtime vector overhead |
 | **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants, dual-mode bitmap and vector icons |
 | **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), Lyon vector path tessellation fill, Oklab uniform gradients, QOI image decoding & span rendering acceleration |
@@ -86,18 +86,14 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 
 ---
 
-## 🎨 Architecture & Crates
+## 🎨 iced Framework Porting (`ui-framework/`)
 
 - **`ui-framework/iced`**: A customized fork of iced for embedded targets, removing unsupported 64-bit atomics on Xtensa and dependencies on `mmap`.
 - **`ui-framework/iced-pomelo-winit`** (package `iced_winit`): Embedded platform runtime adapter handling event loop dispatch, RGB565 framebuffer presentation, damage tracking, and font loading.
 - **`ui-framework/iced-pomelo-gfx`**: Renderer backend for iced that records draw commands into batches for the platform layer to replay.
-- **`ui-framework/pomelo-gfx`**: A high-performance pure-Rust RGB565 software rasterizer supporting Lyon vector path fill, Oklab gradients, QOI image decoding, and anti-aliased strokes.
+- **`ui-framework/pomelo-gfx`**: A high-performance pure-Rust RGB565 software rasterizer supporting geometry, anti-aliased strokes, and glyph masks.
 - **`ui-framework/pomelo-font`**: Embedded typography tooling and assets, providing Chinese font subsetting and pre-baked bitmap glyph tables.
 - **`ui-framework/pomelo-material-symbols`**: A wrapper for Google Material Symbols icon font, providing type-safe icon constants and glyph mappings.
-- **`pomelo-widgets`**: Shared UI component library containing swipe-based `Pager`, dual-mode `AppIcon`, system preferences, and UI widgets.
-- **`pomelo-hal`**: Platform-agnostic peripheral abstraction trait layer and desktop simulator, decoupling applications from target hardware.
-- **`pomelo-firmware`**: ESP32-S3 board firmware containing ESP-IDF C drivers, hardware initialization, and the Rust entrypoint `rust_main`.
-- **`pomelo-apps`**: Built-in applications running on Pomelo OS (Launcher, Calculator, Settings, Terminal, Music Player, etc.).
 
 
 ---

@@ -61,7 +61,7 @@ cd pomelo-firmware/firmware
 | :--- | :---: | :--- |
 | 特性 | 状态 | 说明 |
 | :--- | :---: | :--- |
-| **Iced 组件** | ✅ 已支持 | 按钮、滑块、文本输入框（Text Input，支持密码遮罩与光标闪烁）、Canvas 自定义画布、布局容器等 |
+| **Iced 组件** | ✅ 已支持 | 按钮、滑块、文本输入框、Canvas 自定义画布、布局容器等 |
 | **中文字体** | ✅ 已支持 | 思源黑体烘焙子集，离线位图蒙版，零矢量排版开销 |
 | **系统图标** | ✅ 已支持 | Material Symbols 图标字体封装，强类型 `const` 常量，支持位图与矢量双模图标 |
 | **软件光栅化** | ✅ 已支持 | 纯 Rust RGB565 引擎（`pomelo-gfx`），集成 Lyon 复杂矢量路径填充、Oklab 感知均匀渐变、QOI 图像解码及跨越渲染加速 |
@@ -88,7 +88,7 @@ cd pomelo-firmware/firmware
 
 ---
 
-## 🎨 架构与模块划分
+## 🎨 iced 框架移植（`ui-framework/`）
 
 - **`ui-framework/iced`**：针对嵌入式环境定制的 iced 分支，移除了 Xtensa 架构不支持的 64 位原子操作与 `mmap` 系统依赖。
 - **`ui-framework/iced-pomelo-winit`**（包名 `iced_winit`）：嵌入式平台适配层，负责事件循环派发、RGB565 帧缓冲呈现、脏区追踪以及字体加载。
@@ -96,10 +96,6 @@ cd pomelo-firmware/firmware
 - **`ui-framework/pomelo-gfx`**：面向 16 位色彩原生面板的高性能纯 Rust 软件光栅化引擎，支持 Lyon 复杂矢量路径填充、Oklab 渐变、QOI 图像解码及抗锯齿描边。
 - **`ui-framework/pomelo-font`**：嵌入式字体工具链与资产，提供中文字体子集化及预烘焙位图字形表。
 - **`ui-framework/pomelo-material-symbols`**：Google Material Symbols 图标字体库封装，提供类型安全的图标常量定义与字形映射。
-- **`pomelo-widgets`**：通用 UI 业务组件库，包含手势滑动翻页 `Pager`、多模应用图标 `AppIcon`、系统偏好设置等。
-- **`pomelo-hal`**：平台无关的外设抽象 Trait 层与桌面仿真模拟器，实现应用程序与底层硬件彻底解耦。
-- **`pomelo-firmware`**：ESP32-S3 目标板级固件，包含 ESP-IDF C 驱动、硬件初始化及 Rust 入口 `rust_main`。
-- **`pomelo-apps`**：运行于本系统上的所有内置应用程序（Launcher 启动器、计算器、设置、终端、音乐播放器等）。
 
 
 ---
