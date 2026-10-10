@@ -59,10 +59,10 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 
 | Feature | Status | Description |
 | :--- | :---: | :--- |
-| **Iced Widgets** | ✅ Supported | Buttons, sliders, custom Canvas, layout containers, etc. |
+| **Iced Widgets** | ✅ Supported | Buttons, sliders, text input (Text Input with password masking & cursor blinking), custom Canvas, layout containers, etc. |
 | **Chinese Typography** | ✅ Supported | Subsetted Source Han Sans bitmap glyph masks, zero runtime vector overhead |
-| **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants |
-| **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), native 16-bit framebuffer target |
+| **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants, dual-mode bitmap and vector icons |
+| **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), Lyon vector path tessellation fill, Oklab uniform gradients, QOI image decoding & span rendering acceleration |
 | **Damage Tracking** | ✅ Supported | Partial dirty rectangle tracking, zero redraw overhead for static scenes |
 | **PC Simulation** | ✅ Supported | Desktop window simulation and debugging (Q to go back, W to exit) |
 
@@ -74,11 +74,11 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 | :--- | :---: | :--- |
 | **Display** | ✅ Integrated | Damage rect presentation, DMA sliced chunking |
 | **Touch** | ✅ Integrated | Tap and drag gestures, driven by unified event queue |
-| **Wi-Fi** | ✅ Integrated | AP scanning and connection, IP & RSSI signal display on UI |
+| **Wi-Fi** | ✅ Integrated | AP scanning and connection, credential & power state persistence, IP & RSSI signal display on UI |
 | **Battery** | ✅ Integrated | Real-time percentage, voltage monitoring, charging state, power key events |
 | **Audio** | ✅ Integrated | I2S PCM streaming playback, volume control |
 | **Buttons** | ✅ Integrated | Physical button capture for paging, app exit, and power off |
-| **RTC Clock** | ✅ Integrated | Continues timekeeping when powered off, auto-syncs RTC with POSIX clock |
+| **RTC Clock & Network Sync** | ✅ Integrated | Hardware RTC keeps time when powered off, automatic SNTP network time sync on Wi-Fi connection, auto-syncs RTC with POSIX clock |
 | **IMU Sensor** | 🚧 Planned | HAL Trait and simulator ready, board driver pending |
 | **Microphone** | 🚧 Planned | Audio capture interface and recording pending |
 | **TF Card** | 🚧 Planned | Hardware routed, filesystem support pending |
@@ -86,14 +86,18 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 
 ---
 
-## 🎨 iced Framework Porting (`ui-framework/`)
+## 🎨 Architecture & Crates
 
 - **`ui-framework/iced`**: A customized fork of iced for embedded targets, removing unsupported 64-bit atomics on Xtensa and dependencies on `mmap`.
 - **`ui-framework/iced-pomelo-winit`** (package `iced_winit`): Embedded platform runtime adapter handling event loop dispatch, RGB565 framebuffer presentation, damage tracking, and font loading.
 - **`ui-framework/iced-pomelo-gfx`**: Renderer backend for iced that records draw commands into batches for the platform layer to replay.
-- **`ui-framework/pomelo-gfx`**: A high-performance pure-Rust RGB565 software rasterizer supporting geometry, anti-aliased strokes, and glyph masks.
+- **`ui-framework/pomelo-gfx`**: A high-performance pure-Rust RGB565 software rasterizer supporting Lyon vector path fill, Oklab gradients, QOI image decoding, and anti-aliased strokes.
 - **`ui-framework/pomelo-font`**: Embedded typography tooling and assets, providing Chinese font subsetting and pre-baked bitmap glyph tables.
 - **`ui-framework/pomelo-material-symbols`**: A wrapper for Google Material Symbols icon font, providing type-safe icon constants and glyph mappings.
+- **`pomelo-widgets`**: Shared UI component library containing swipe-based `Pager`, dual-mode `AppIcon`, system preferences, and UI widgets.
+- **`pomelo-hal`**: Platform-agnostic peripheral abstraction trait layer and desktop simulator, decoupling applications from target hardware.
+- **`pomelo-firmware`**: ESP32-S3 board firmware containing ESP-IDF C drivers, hardware initialization, and the Rust entrypoint `rust_main`.
+- **`pomelo-apps`**: Built-in applications running on Pomelo OS (Launcher, Calculator, Settings, Terminal, Music Player, etc.).
 
 
 ---
