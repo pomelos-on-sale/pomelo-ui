@@ -55,18 +55,7 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 
 ## ✨ Feature & Hardware Support
 
-### 1. UI Framework & Graphics Features
-
-| Feature | Status | Description |
-| :--- | :---: | :--- |
-| **Iced Widgets** | ✅ Supported | Buttons, sliders, text input, custom Canvas, layout containers, etc. |
-| **Chinese Typography** | ✅ Supported | Subsetted Source Han Sans bitmap glyph masks, zero runtime vector overhead |
-| **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants, dual-mode bitmap and vector icons |
-| **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), Lyon vector path tessellation fill, Oklab uniform gradients, QOI image decoding & span rendering acceleration |
-| **Damage Tracking** | ✅ Supported | Partial dirty rectangle tracking, zero redraw overhead for static scenes |
-| **PC Simulation** | ✅ Supported | Desktop window simulation and debugging (Q to go back, W to exit) |
-
-### 2. Hardware Abstraction & UI Integration
+### Hardware Abstraction & UI Integration
 
 > Drivers are provided by ESP-IDF. This project wraps them into Rust `pomelo-hal` traits and integrates them into the UI.
 
@@ -94,6 +83,17 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 - **`ui-framework/pomelo-gfx`**: A high-performance pure-Rust RGB565 software rasterizer supporting geometry, anti-aliased strokes, and glyph masks.
 - **`ui-framework/pomelo-font`**: Embedded typography tooling and assets, providing Chinese font subsetting and pre-baked bitmap glyph tables.
 - **`ui-framework/pomelo-material-symbols`**: A wrapper for Google Material Symbols icon font, providing type-safe icon constants and glyph mappings.
+
+### UI Framework & Graphics Features
+
+| Feature | Status | Description |
+| :--- | :---: | :--- |
+| **Iced Widgets** | ✅ Supported | Buttons, sliders, text input, custom Canvas, layout containers, etc. |
+| **Chinese Typography** | ✅ Supported | Subsetted Source Han Sans bitmap glyph masks, zero runtime vector overhead |
+| **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants, dual-mode bitmap and vector icons |
+| **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), Lyon vector path tessellation fill, Oklab uniform gradients, QOI image decoding & span rendering acceleration |
+| **Damage Tracking** | ✅ Supported | Partial dirty rectangle tracking, zero redraw overhead for static scenes |
+| **PC Simulation** | ✅ Supported | Desktop window simulation and debugging (Q to go back, W to exit) |
 
 
 ---
