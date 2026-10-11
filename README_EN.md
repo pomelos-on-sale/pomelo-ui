@@ -81,7 +81,7 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 | **RTC Clock & Network Sync** | ✅ Integrated | Hardware RTC keeps time when powered off, automatic SNTP network time sync on Wi-Fi connection, auto-syncs RTC with POSIX clock |
 | **IMU Sensor** | 🚧 Planned | HAL Trait and simulator ready, board driver pending |
 | **Microphone** | 🚧 Planned | Audio capture interface and recording pending |
-| **TF Card** | 🚧 Planned | Hardware routed, filesystem support pending |
+| **TF Card** | ✅ Integrated | 1-bit SDMMC driver and FatFS VFS mounted at `/sdcard`, supports UTF-8 and long filenames, automatically accessible by apps |
 | **Bluetooth** | 🚧 Planned | Hardware present, BLE protocol stack pending |
 
 ---
