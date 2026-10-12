@@ -102,10 +102,12 @@
 
 ## 九、 待办清单 (TODO)
 
-- [ ] 决定 NTP 源与"未校时"策略（§五-1 / §五-2）
-- [ ] C 侧 `hal_time_*`（`esp_netif_sntp_init` + 两个查询）
-- [ ] HAL 侧 `TimeBackend` + `SimTime`（桌面可测）
-- [ ] `HttpBackend::start()` 的 `ClockNotSet` 前置检查
-- [ ] `board_http.c` 的 `esp_crt_bundle_attach`
+- [x] 决定 NTP 源与"未校时"策略（§五-1 / §五-2）
+- [x] C 侧 `hal_sntp_*`（SNTP 同步与查询接口）
+- [x] HAL 侧 `TimeBackend` + `SimTime`（桌面可测）
+- [x] `HttpBackend::start()` 的 `ClockNotSynced` 前置检查
+- [x] `board_http.c` 的 `esp_crt_bundle_attach` + Core 0 异步任务 + 非阻塞状态机
+- [x] 硬件事件总线直连与零轮询事件驱动（`HAL_EVENT_HTTP` -> `SystemEvent::HttpFinished` -> Iced subscription）
+- [x] `pomelo-apps/terminal` 提供 `curl <url>` 测试命令，零定时器事件驱动回显响应
 - [ ] 状态栏改读真实时间，删掉 `Message::Status` 推送
 - [ ] 真机跑完 §七 的清单（含反向验证）
