@@ -34,7 +34,7 @@ cd pomelo-apps
 cargo run -p app-launcher
 ```
 
-Q 键为返回键，W 键为退出键。
+Q 键为返回键，E 键为退出键。
 
 ### 2. 烧录至硬件设备
 

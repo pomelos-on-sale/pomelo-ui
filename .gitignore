@@ -21,3 +21,8 @@ build/
 
 
 .venv/
+
+# Environment and runtime data
+.env
+.env.*
+assets/internal/AppData/
