@@ -19,10 +19,8 @@ build/
 # VSCode
 .vscode/
 
-
 .venv/
 
-# Environment and runtime data
-.env
-.env.*
-assets/internal/AppData/
+# Local environment files (root only)
+/.env
+/.env.*
