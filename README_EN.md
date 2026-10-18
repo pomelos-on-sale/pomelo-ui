@@ -34,7 +34,7 @@ cd pomelo-apps
 cargo run -p app-launcher
 ```
 
-Press Q to go back, W to exit.
+Press Q to go back, W to return home, and E to exit.
 
 ### 2. Flash to Hardware Device
 
@@ -49,7 +49,10 @@ cd pomelo-firmware/firmware
 ./flash.sh
 ```
 
-Press the PWR key to power on. After booting into the desktop launcher: swipe left / right to change pages, tap an app icon to open the application, press the left button to minimize the application, press the right button to exit the application, and long-press the middle button to power off.
+Press the PWR key to power on. After booting into the desktop launcher: swipe left / right to change pages, tap an app icon to open the application:
+- **Left button (BOOT)**: Navigate back to the previous screen (Back)
+- **Middle button (PWR)**: Short-press to return to the home screen (Home, keeping the app running in the background with its state fully preserved), long-press to power off
+- **Right button (KEY3)**: Exit and close the active application (Exit, freeing memory)
 
 ---
 
@@ -66,7 +69,7 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 | **Wi-Fi** | ✅ Integrated | AP scanning and connection, credential & power state persistence, IP & RSSI signal display on UI |
 | **Battery** | ✅ Integrated | Real-time percentage, voltage monitoring, charging state, power key events |
 | **Audio** | ✅ Integrated | I2S PCM streaming playback, volume control |
-| **Buttons** | ✅ Integrated | Physical button capture for paging, app exit, and power off |
+| **Buttons** | ✅ Integrated | Physical button capture: BOOT for back, PWR short-press for home (keeps app in background) / long-press for power-off, KEY3 for exit |
 | **RTC Clock & Network Sync** | ✅ Integrated | Hardware RTC keeps time when powered off, automatic SNTP network time sync on Wi-Fi connection, auto-syncs RTC with POSIX clock |
 | **IMU Sensor** | 🚧 Planned | HAL Trait and simulator ready, board driver pending |
 | **Microphone** | 🚧 Planned | Audio capture interface and recording pending |
@@ -93,7 +96,7 @@ Press the PWR key to power on. After booting into the desktop launcher: swipe le
 | **System Icons** | ✅ Supported | Material Symbols icon font wrapper, strongly typed constants, dual-mode bitmap and vector icons |
 | **Software Rasterizer** | ✅ Supported | Pure-Rust RGB565 engine (`pomelo-gfx`), Lyon vector path tessellation fill, Oklab uniform gradients, QOI image decoding & span rendering acceleration |
 | **Damage Tracking** | ✅ Supported | Partial dirty rectangle tracking, zero redraw overhead for static scenes |
-| **PC Simulation** | ✅ Supported | Desktop window simulation and debugging (Q to go back, W to exit) |
+| **PC Simulation** | ✅ Supported | Desktop window simulation and debugging (Q to go back, W to return home, E to exit) |
 
 
 ---
